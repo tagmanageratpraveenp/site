@@ -8,8 +8,35 @@
       "category": "retail",
       "integration": "inline",
       "expectedState": "success",
-      "tagTypes": ["base-js"],
+      "tagTypes": [
+        "base-js"
+      ],
       "path": "/retail/",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-image-pageview",
+      "title": "Inline image pixel fires on page load",
+      "category": "content",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": [
+        "image-pixel"
+      ],
+      "path": "/content/article.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-destination-url",
+      "title": "Inline Dot qualifies a destination URL rule",
+      "category": "travel",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": [
+        "base-js",
+        "destination-url"
+      ],
+      "path": "/travel/hotel.html",
       "knownIssue": null
     },
     {
@@ -18,7 +45,9 @@
       "category": "retail",
       "integration": "inline",
       "expectedState": "success",
-      "tagTypes": ["custom-event"],
+      "tagTypes": [
+        "custom-event"
+      ],
       "path": "/retail/product.html",
       "knownIssue": null
     },
@@ -28,8 +57,59 @@
       "category": "retail",
       "integration": "inline",
       "expectedState": "success",
-      "tagTypes": ["user-action-event"],
+      "tagTypes": [
+        "user-action-event"
+      ],
       "path": "/retail/cart.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-form-submit",
+      "title": "Inline lead form submit fires a conversion event",
+      "category": "lead-gen",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": [
+        "user-action-event"
+      ],
+      "path": "/lead-gen/",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-purchase",
+      "title": "Inline purchase event includes order value fields",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": [
+        "custom-event",
+        "purchase"
+      ],
+      "path": "/retail/purchase.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-enhanced-matching-email",
+      "title": "Inline enhanced matching sends email hash",
+      "category": "lead-gen",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": [
+        "enhanced-matching"
+      ],
+      "path": "/lead-gen/thank-you.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-enhanced-matching-phone",
+      "title": "Inline enhanced matching sends phone hash",
+      "category": "travel",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": [
+        "enhanced-matching"
+      ],
+      "path": "/travel/booking-confirmation.html",
       "knownIssue": null
     },
     {
@@ -38,59 +118,12 @@
       "category": "retail",
       "integration": "inline",
       "expectedState": "success",
-      "tagTypes": ["enhanced-matching", "purchase"],
+      "tagTypes": [
+        "enhanced-matching",
+        "purchase"
+      ],
       "path": "/retail/order-confirmation.html",
       "knownIssue": null
-    },
-    {
-      "scenarioId": "inline-bad-missing-base",
-      "title": "Inline event snippet exists without the base tag",
-      "category": "retail",
-      "integration": "inline",
-      "expectedState": "failure",
-      "tagTypes": ["custom-event"],
-      "path": "/retail/bad/missing-base.html",
-      "knownIssue": "missing-base"
-    },
-    {
-      "scenarioId": "inline-bad-event-before-base",
-      "title": "Inline event fires before the base tag is available",
-      "category": "retail",
-      "integration": "inline",
-      "expectedState": "failure",
-      "tagTypes": ["custom-event"],
-      "path": "/retail/bad/event-before-base.html",
-      "knownIssue": "event-before-base"
-    },
-    {
-      "scenarioId": "inline-bad-wrong-pixel-id",
-      "title": "Inline Dot fires with the wrong pixel ID",
-      "category": "retail",
-      "integration": "inline",
-      "expectedState": "failure",
-      "tagTypes": ["base-js"],
-      "path": "/retail/bad/wrong-pixel.html",
-      "knownIssue": "wrong-pixel-id"
-    },
-    {
-      "scenarioId": "inline-bad-duplicate-event",
-      "title": "Inline conversion event fires twice",
-      "category": "retail",
-      "integration": "inline",
-      "expectedState": "failure",
-      "tagTypes": ["custom-event"],
-      "path": "/retail/bad/duplicate-event.html",
-      "knownIssue": "duplicate-event"
-    },
-    {
-      "scenarioId": "inline-bad-placeholder-values",
-      "title": "Inline enhanced matching values still contain placeholders",
-      "category": "lead-gen",
-      "integration": "inline",
-      "expectedState": "failure",
-      "tagTypes": ["enhanced-matching"],
-      "path": "/lead-gen/bad/placeholders.html",
-      "knownIssue": "placeholder-values"
     },
     {
       "scenarioId": "gtm-ok-base-pageview",
@@ -98,7 +131,9 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "success",
-      "tagTypes": ["gtm-pageview"],
+      "tagTypes": [
+        "gtm-pageview"
+      ],
       "path": "/retail/gtm.html",
       "knownIssue": null
     },
@@ -108,7 +143,9 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "success",
-      "tagTypes": ["gtm-custom-event"],
+      "tagTypes": [
+        "gtm-custom-event"
+      ],
       "path": "/retail/gtm-product.html",
       "knownIssue": null
     },
@@ -118,8 +155,35 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "success",
-      "tagTypes": ["gtm-user-action-event"],
+      "tagTypes": [
+        "gtm-user-action-event"
+      ],
       "path": "/retail/gtm-cart.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "gtm-ok-form-submit",
+      "title": "GTM lead form submit pushes dataLayer and fires Dot",
+      "category": "lead-gen",
+      "integration": "gtm",
+      "expectedState": "success",
+      "tagTypes": [
+        "gtm-user-action-event"
+      ],
+      "path": "/lead-gen/gtm.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "gtm-ok-purchase",
+      "title": "GTM purchase event includes revenue fields",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "success",
+      "tagTypes": [
+        "gtm-custom-event",
+        "purchase"
+      ],
+      "path": "/retail/gtm-confirmation.html",
       "knownIssue": null
     },
     {
@@ -128,9 +192,143 @@
       "category": "lead-gen",
       "integration": "gtm",
       "expectedState": "success",
-      "tagTypes": ["gtm-enhanced-matching"],
+      "tagTypes": [
+        "gtm-enhanced-matching"
+      ],
       "path": "/lead-gen/gtm-thank-you.html",
       "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-bad-missing-base",
+      "title": "Inline event snippet exists without the base tag",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "custom-event"
+      ],
+      "path": "/retail/bad/missing-base.html",
+      "knownIssue": "missing-base"
+    },
+    {
+      "scenarioId": "inline-bad-event-before-base",
+      "title": "Inline event fires before the base tag is available",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "custom-event"
+      ],
+      "path": "/retail/bad/event-before-base.html",
+      "knownIssue": "event-before-base"
+    },
+    {
+      "scenarioId": "inline-bad-wrong-pixel-id",
+      "title": "Inline Dot fires with the wrong pixel ID",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "base-js"
+      ],
+      "path": "/retail/bad/wrong-pixel.html",
+      "knownIssue": "wrong-pixel-id"
+    },
+    {
+      "scenarioId": "inline-bad-wrong-rule-id",
+      "title": "Inline event fires against the wrong rule ID",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "custom-event"
+      ],
+      "path": "/retail/bad/wrong-rule.html",
+      "knownIssue": "wrong-rule-id"
+    },
+    {
+      "scenarioId": "inline-bad-placeholder-values",
+      "title": "Inline enhanced matching values still contain placeholders",
+      "category": "lead-gen",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "enhanced-matching"
+      ],
+      "path": "/lead-gen/bad/placeholders.html",
+      "knownIssue": "placeholder-values"
+    },
+    {
+      "scenarioId": "inline-bad-duplicate-base",
+      "title": "Inline base Dot tag is installed twice",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "base-js"
+      ],
+      "path": "/retail/bad/duplicate-base.html",
+      "knownIssue": "duplicate-base"
+    },
+    {
+      "scenarioId": "inline-bad-duplicate-event",
+      "title": "Inline conversion event fires twice",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "custom-event"
+      ],
+      "path": "/retail/bad/duplicate-event.html",
+      "knownIssue": "duplicate-event"
+    },
+    {
+      "scenarioId": "inline-bad-http-url",
+      "title": "Inline image pixel uses an insecure HTTP URL",
+      "category": "content",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "image-pixel"
+      ],
+      "path": "/content/bad/http-tag.html",
+      "knownIssue": "http-url"
+    },
+    {
+      "scenarioId": "inline-bad-iframe-only",
+      "title": "Inline Dot tag exists only inside an iframe",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "base-js"
+      ],
+      "path": "/retail/bad/iframe-only.html",
+      "knownIssue": "iframe-only"
+    },
+    {
+      "scenarioId": "inline-bad-blocked-csp",
+      "title": "Inline Dot script is blocked by CSP",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "base-js"
+      ],
+      "path": "/retail/bad/csp-blocked.html",
+      "knownIssue": "blocked-csp"
+    },
+    {
+      "scenarioId": "inline-bad-no-action-fired",
+      "title": "Inline user action never fires the event",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": [
+        "user-action-event"
+      ],
+      "path": "/retail/bad/no-click-handler.html",
+      "knownIssue": "no-action-fired"
     },
     {
       "scenarioId": "gtm-bad-missing-container",
@@ -138,7 +336,9 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "failure",
-      "tagTypes": ["gtm-container"],
+      "tagTypes": [
+        "gtm-container"
+      ],
       "path": "/retail/bad/gtm-missing.html",
       "knownIssue": "missing-container"
     },
@@ -148,7 +348,9 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "failure",
-      "tagTypes": ["gtm-container"],
+      "tagTypes": [
+        "gtm-container"
+      ],
       "path": "/retail/bad/gtm-wrong-container.html",
       "knownIssue": "wrong-container"
     },
@@ -158,7 +360,9 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "failure",
-      "tagTypes": ["gtm-pageview"],
+      "tagTypes": [
+        "gtm-pageview"
+      ],
       "path": "/retail/bad/gtm-no-dot.html",
       "knownIssue": "dot-tag-absent"
     },
@@ -168,7 +372,9 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "failure",
-      "tagTypes": ["gtm-custom-event"],
+      "tagTypes": [
+        "gtm-custom-event"
+      ],
       "path": "/retail/bad/gtm-trigger-mismatch.html",
       "knownIssue": "trigger-mismatch"
     },
@@ -178,9 +384,35 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "failure",
-      "tagTypes": ["gtm-custom-event"],
+      "tagTypes": [
+        "gtm-custom-event"
+      ],
       "path": "/retail/bad/gtm-datalayer-overwrite.html",
       "knownIssue": "datalayer-overwrite"
+    },
+    {
+      "scenarioId": "gtm-bad-event-before-gtm",
+      "title": "Event is pushed before GTM is initialized correctly",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": [
+        "gtm-custom-event"
+      ],
+      "path": "/retail/bad/gtm-event-before-load.html",
+      "knownIssue": "event-before-gtm"
+    },
+    {
+      "scenarioId": "gtm-bad-wrong-pixel-id",
+      "title": "GTM Dot tag is configured with the wrong pixel ID",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": [
+        "gtm-pageview"
+      ],
+      "path": "/retail/bad/gtm-wrong-pixel.html",
+      "knownIssue": "wrong-pixel-id"
     },
     {
       "scenarioId": "gtm-bad-duplicate-trigger",
@@ -188,9 +420,35 @@
       "category": "retail",
       "integration": "gtm",
       "expectedState": "failure",
-      "tagTypes": ["gtm-user-action-event"],
+      "tagTypes": [
+        "gtm-user-action-event"
+      ],
       "path": "/retail/bad/gtm-duplicate-trigger.html",
       "knownIssue": "duplicate-trigger"
+    },
+    {
+      "scenarioId": "gtm-bad-consent-blocked",
+      "title": "GTM consent state suppresses Dot firing",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": [
+        "gtm-pageview"
+      ],
+      "path": "/retail/bad/gtm-consent-blocked.html",
+      "knownIssue": "consent-blocked"
+    },
+    {
+      "scenarioId": "gtm-bad-enhanced-matching-missing-vars",
+      "title": "GTM enhanced matching variables are missing",
+      "category": "lead-gen",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": [
+        "gtm-enhanced-matching"
+      ],
+      "path": "/lead-gen/bad/gtm-missing-em-vars.html",
+      "knownIssue": "enhanced-matching-missing-vars"
     }
   ]
 }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="inline-ok-enhanced-matching-email">
+    <title>inline-ok-enhanced-matching-email | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="application/javascript" data-dot-fixture-tag="base-js" data-dot-pixel-id="10217006">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'10217006','he':'TEST_EMAIL_PLACEHOLDER'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "inline-ok-enhanced-matching-email",
+  "title": "Inline enhanced matching sends email hash",
+  "category": "lead-gen",
+  "integration": "inline",
+  "expectedState": "success",
+  "tagTypes": [
+    "enhanced-matching"
+  ],
+  "pageUrl": "/lead-gen/thank-you.html",
+  "pixelId": "10217006",
+  "ruleId": "DOT_RULE_ID_LEAD",
+  "gtmContainerId": null,
+  "matching": {
+    "he": "TEST_EMAIL_PLACEHOLDER",
+    "hph": null
+  },
+  "expectedEvents": [
+    {
+      "name": "lead",
+      "trigger": "page-load",
+      "shouldFire": true,
+      "expectedCount": 1
+    }
+  ],
+  "knownIssue": null
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>

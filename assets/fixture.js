@@ -242,14 +242,45 @@
 
   function fixtureContent(metadata) {
     const isLead = metadata.category === "lead-gen";
-    const isPurchase = (metadata.tagTypes || []).includes("purchase") || metadata.scenarioId.includes("duplicate") || metadata.scenarioId.includes("trigger");
+    const isTravel = metadata.category === "travel";
+    const isContent = metadata.category === "content";
+    const eventName = (metadata.expectedEvents || []).find((event) => event.trigger === "user-action")?.name
+      || (metadata.expectedEvents || [])[0]?.name
+      || "fixture_event";
+    const canFireAction = !metadata.disableActionHandler;
+    const isPurchase = (metadata.tagTypes || []).includes("purchase") || eventName === "purchase" || metadata.scenarioId.includes("duplicate") || metadata.scenarioId.includes("trigger");
     if (isLead) {
       return `
         <div class="lead-card">
-          <h2>Lead confirmation</h2>
+          <h2>${eventName === "lead" && metadata.expectedEvents?.[0]?.trigger === "user-action" ? "Lead request" : "Lead confirmation"}</h2>
           <p>Thanks for requesting a consultation. This page carries the lead-generation fixture state for enhanced matching and form scenarios.</p>
+          ${metadata.expectedEvents?.[0]?.trigger === "user-action" ? `
+            <label>Name<input value="Test Visitor" aria-label="Name"></label>
+            <label>Email<input value="TEST_EMAIL_PLACEHOLDER" aria-label="Email"></label>
+            <button class="action-button" ${canFireAction ? `data-fixture-action="lead" data-fixture-event="${eventName}"` : ""}>Submit lead</button>
+          ` : ""}
           <p><strong>Email hash:</strong> ${metadata.matching?.he || "HASHED_EMAIL_PLACEHOLDER"}</p>
           <p><strong>Phone hash:</strong> ${metadata.matching?.hph || "HASHED_PHONE_PLACEHOLDER"}</p>
+        </div>
+      `;
+    }
+    if (isContent) {
+      return `
+        <article class="product-card">
+          <div class="product-media" aria-hidden="true"></div>
+          <h2>Performance marketing guide</h2>
+          <p>This article page is a content fixture for image-pixel and bad-URL scenarios.</p>
+          <p>Visitors can read the article without requiring a commerce or form action.</p>
+        </article>
+      `;
+    }
+    if (isTravel) {
+      return `
+        <div class="checkout-card">
+          <h2>${metadata.scenarioId.includes("confirmation") ? "Booking confirmation" : "Hotel detail"}</h2>
+          <p>Harbor View Hotel, Toronto. Two nights, flexible cancellation, breakfast included.</p>
+          <p><strong>Booking value:</strong> $489.00 USD</p>
+          ${metadata.expectedEvents?.[0]?.trigger === "user-action" ? `<button class="action-button" ${canFireAction ? `data-fixture-action="booking" data-fixture-event="${eventName}"` : ""}>Complete booking</button>` : ""}
         </div>
       `;
     }
@@ -259,7 +290,7 @@
           <h2>Order confirmation</h2>
           <p>Order <strong>ORDER-1001</strong> is complete.</p>
           <p>Total: <strong>$129.99 USD</strong></p>
-          <button class="action-button" data-fixture-action="purchase">Replay purchase action</button>
+          <button class="action-button" ${canFireAction ? `data-fixture-action="purchase" data-fixture-event="${eventName}"` : ""}>Replay purchase action</button>
         </div>
       `;
     }
@@ -269,7 +300,7 @@
         <h2>Retail product page</h2>
         <p>Performance jacket with weather-resistant shell and lightweight insulation.</p>
         <p><strong>$129.99</strong></p>
-        <button class="action-button" data-fixture-action="cart">Add to cart</button>
+        <button class="action-button" ${canFireAction ? `data-fixture-action="cart" data-fixture-event="${eventName}"` : ""}>Add to cart</button>
       </div>
     `;
   }
@@ -316,9 +347,10 @@
     document.querySelectorAll("[data-fixture-action]").forEach((button) => {
       button.addEventListener("click", () => {
         const action = button.getAttribute("data-fixture-action");
+        const eventName = button.getAttribute("data-fixture-event") || (action === "cart" ? "add_to_cart" : action);
         const event = metadata.integration === "gtm"
-          ? window.dotFixture.pushDataLayer({ event: action === "cart" ? "add_to_cart" : "purchase", scenarioId: metadata.scenarioId })
-          : window.dotFixture.record(action === "cart" ? "add_to_cart" : "purchase", { scenarioId: metadata.scenarioId });
+          ? window.dotFixture.pushDataLayer({ event: eventName, scenarioId: metadata.scenarioId })
+          : window.dotFixture.record(eventName, { scenarioId: metadata.scenarioId });
         renderEventLog(event);
       });
     });

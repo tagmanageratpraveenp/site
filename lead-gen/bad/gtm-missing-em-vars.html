@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="gtm-bad-enhanced-matching-missing-vars">
+    <title>gtm-bad-enhanced-matching-missing-vars | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="application/json" data-dot-fixture-tag="gtm-container" data-gtm-container-id="GTM-REPLACE-MISSING-EM-VARS">{"src":"https://www.googletagmanager.com/gtm.js?id=GTM-REPLACE-MISSING-EM-VARS"}</script>
+    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="gtm-dot-tag" data-dot-pixel-id="10217006" data-dot-rule-id="DOT_RULE_ID_LEAD" data-dot-event="lead" data-gtm-trigger="lead"></script>
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "gtm-bad-enhanced-matching-missing-vars",
+  "title": "GTM enhanced matching variables are missing",
+  "category": "lead-gen",
+  "integration": "gtm",
+  "expectedState": "failure",
+  "tagTypes": [
+    "gtm-enhanced-matching"
+  ],
+  "pageUrl": "/lead-gen/bad/gtm-missing-em-vars.html",
+  "pixelId": "10217006",
+  "ruleId": "DOT_RULE_ID_LEAD",
+  "gtmContainerId": "GTM-REPLACE-MISSING-EM-VARS",
+  "matching": {
+    "he": null,
+    "hph": null
+  },
+  "expectedEvents": [
+    {
+      "name": "lead",
+      "trigger": "page-load",
+      "shouldFire": true,
+      "expectedCount": 1
+    }
+  ],
+  "knownIssue": "enhanced-matching-missing-vars"
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>

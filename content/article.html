@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="inline-ok-image-pageview">
+    <title>inline-ok-image-pageview | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    <img data-dot-fixture-tag="image-pixel" alt="" width="1" height="1" src="https://sp.analytics.yahoo.com/spp.pl?a=10000&.yp=10217006&he=TEST_EMAIL_PLACEHOLDER&hph=TEST_PHONE_PLACEHOLDER">
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "inline-ok-image-pageview",
+  "title": "Inline image pixel fires on page load",
+  "category": "content",
+  "integration": "inline",
+  "expectedState": "success",
+  "tagTypes": [
+    "image-pixel"
+  ],
+  "pageUrl": "/content/article.html",
+  "pixelId": "10217006",
+  "ruleId": null,
+  "gtmContainerId": null,
+  "matching": {
+    "he": "TEST_EMAIL_PLACEHOLDER",
+    "hph": "TEST_PHONE_PLACEHOLDER"
+  },
+  "expectedEvents": [
+    {
+      "name": "pageview",
+      "trigger": "page-load",
+      "shouldFire": true,
+      "expectedCount": 1
+    }
+  ],
+  "knownIssue": null
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>

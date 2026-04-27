@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="gtm-bad-consent-blocked">
+    <title>gtm-bad-consent-blocked | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="application/json" data-dot-fixture-tag="gtm-container" data-gtm-container-id="GTM-REPLACE-CONSENT-BLOCKED">{"src":"https://www.googletagmanager.com/gtm.js?id=GTM-REPLACE-CONSENT-BLOCKED","consent":"denied"}</script>
+    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="gtm-dot-tag" data-dot-pixel-id="10217006" data-dot-rule-id="DOT_RULE_ID_PAGEVIEW" data-dot-event="pageview" data-gtm-trigger="pageview" data-consent-state="denied"></script>
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "gtm-bad-consent-blocked",
+  "title": "GTM consent state suppresses Dot firing",
+  "category": "retail",
+  "integration": "gtm",
+  "expectedState": "failure",
+  "tagTypes": [
+    "gtm-pageview"
+  ],
+  "pageUrl": "/retail/bad/gtm-consent-blocked.html",
+  "pixelId": "10217006",
+  "ruleId": null,
+  "gtmContainerId": "GTM-REPLACE-CONSENT-BLOCKED",
+  "consentState": "denied",
+  "expectedEvents": [
+    {
+      "name": "pageview",
+      "trigger": "page-load",
+      "shouldFire": false,
+      "expectedCount": 0
+    }
+  ],
+  "knownIssue": "consent-blocked"
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>
