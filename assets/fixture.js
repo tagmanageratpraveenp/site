@@ -206,61 +206,44 @@
     return card;
   }
 
-  function readPageMetadata() {
-    const node = document.getElementById("dot-fixture-metadata");
-    if (!node) return null;
-    return JSON.parse(node.textContent);
+  function pageConfig(root) {
+    return {
+      kind: root.dataset.pageKind || "retail-product",
+      actionEvent: root.dataset.actionEvent || "",
+      actionMode: root.dataset.actionMode || "inline",
+      actionDisabled: root.dataset.actionDisabled === "true",
+      autoEvent: root.dataset.autoEvent || "",
+      autoMode: root.dataset.autoMode || "inline",
+      autoCount: Number(root.dataset.autoCount || "0")
+    };
   }
 
-  function renderMetadata(metadata) {
-    const installStatus = fixtureInstallStatus();
-    return `
-      <dl class="metadata-list">
-        <div><dt>Scenario</dt><dd>${metadata.scenarioId}</dd></div>
-        <div><dt>Install status</dt><dd>${installStatus}</dd></div>
-        <div><dt>State</dt><dd>${metadata.expectedState}</dd></div>
-        <div><dt>Integration</dt><dd>${metadata.integration}</dd></div>
-        <div><dt>Category</dt><dd>${metadata.category}</dd></div>
-        <div><dt>Tags</dt><dd>${(metadata.tagTypes || []).join(", ")}</dd></div>
-        <div><dt>Known issue</dt><dd>${metadata.knownIssue || "none"}</dd></div>
-        <div><dt>Pixel ID</dt><dd>${metadata.pixelId || "none"}</dd></div>
-        <div><dt>Rule ID</dt><dd>${metadata.ruleId || "none"}</dd></div>
-        <div><dt>GTM ID</dt><dd>${metadata.gtmContainerId || "none"}</dd></div>
-      </dl>
-    `;
+  function genericTitle(kind) {
+    if (kind.startsWith("lead")) return "Lead Request";
+    if (kind.startsWith("travel")) return kind.includes("confirmation") ? "Booking Confirmation" : "Hotel Detail";
+    if (kind.startsWith("content")) return "Performance Marketing Guide";
+    if (kind.includes("confirmation") || kind.includes("checkout")) return "Order Confirmation";
+    return "Retail Store";
   }
 
-  function fixtureInstallStatus() {
-    const liveDot = Boolean(document.querySelector('script[data-dot-fixture-tag="base-js"][type="application/javascript"]'));
-    const liveGtm = Boolean(document.querySelector('script[data-dot-fixture-tag="gtm-container"]:not([type="application/json"])'));
-    const placeholders = document.querySelectorAll('script[type="application/x-dot-pixel-placeholder"], script[data-dot-fixture-tag="gtm-container"][type="application/json"]').length;
-    if ((liveDot || liveGtm) && placeholders > 0) return "Partially functional; event wiring is scaffolded";
-    if (liveDot || liveGtm) return "Functional install snippet present";
-    if (placeholders > 0) return "Scaffolded placeholder install";
-    return "No install snippet present";
-  }
-
-  function fixtureContent(metadata) {
-    const isLead = metadata.category === "lead-gen";
-    const isTravel = metadata.category === "travel";
-    const isContent = metadata.category === "content";
-    const eventName = (metadata.expectedEvents || []).find((event) => event.trigger === "user-action")?.name
-      || (metadata.expectedEvents || [])[0]?.name
-      || "fixture_event";
-    const canFireAction = !metadata.disableActionHandler;
-    const isPurchase = (metadata.tagTypes || []).includes("purchase") || eventName === "purchase" || metadata.scenarioId.includes("duplicate") || metadata.scenarioId.includes("trigger");
+  function fixtureContent(config) {
+    const isLead = config.kind.startsWith("lead");
+    const isTravel = config.kind.startsWith("travel");
+    const isContent = config.kind.startsWith("content");
+    const isPurchase = config.kind.includes("checkout") || config.kind.includes("confirmation") || config.actionEvent === "purchase" || config.autoEvent === "purchase";
+    const actionAttrs = config.actionEvent && !config.actionDisabled
+      ? `data-fixture-action="${config.actionEvent}" data-fixture-mode="${config.actionMode}"`
+      : "";
     if (isLead) {
       return `
         <div class="lead-card">
-          <h2>${eventName === "lead" && metadata.expectedEvents?.[0]?.trigger === "user-action" ? "Lead request" : "Lead confirmation"}</h2>
-          <p>Thanks for requesting a consultation. This page carries the lead-generation fixture state for enhanced matching and form scenarios.</p>
-          ${metadata.expectedEvents?.[0]?.trigger === "user-action" ? `
+          <h2>${config.actionEvent ? "Lead request" : "Lead confirmation"}</h2>
+          <p>Thanks for requesting a consultation. A specialist will follow up with the requested materials.</p>
+          ${config.actionEvent ? `
             <label>Name<input value="Test Visitor" aria-label="Name"></label>
             <label>Email<input value="TEST_EMAIL_PLACEHOLDER" aria-label="Email"></label>
-            <button class="action-button" ${canFireAction ? `data-fixture-action="lead" data-fixture-event="${eventName}"` : ""}>Submit lead</button>
+            <button class="action-button" ${actionAttrs}>Submit lead</button>
           ` : ""}
-          <p><strong>Email hash:</strong> ${metadata.matching?.he || "HASHED_EMAIL_PLACEHOLDER"}</p>
-          <p><strong>Phone hash:</strong> ${metadata.matching?.hph || "HASHED_PHONE_PLACEHOLDER"}</p>
         </div>
       `;
     }
@@ -269,7 +252,7 @@
         <article class="product-card">
           <div class="product-media" aria-hidden="true"></div>
           <h2>Performance marketing guide</h2>
-          <p>This article page is a content fixture for image-pixel and bad-URL scenarios.</p>
+          <p>Practical ideas for measuring media performance across commerce, travel, and lead-generation journeys.</p>
           <p>Visitors can read the article without requiring a commerce or form action.</p>
         </article>
       `;
@@ -277,10 +260,10 @@
     if (isTravel) {
       return `
         <div class="checkout-card">
-          <h2>${metadata.scenarioId.includes("confirmation") ? "Booking confirmation" : "Hotel detail"}</h2>
+          <h2>${config.kind.includes("confirmation") ? "Booking confirmation" : "Hotel detail"}</h2>
           <p>Harbor View Hotel, Toronto. Two nights, flexible cancellation, breakfast included.</p>
           <p><strong>Booking value:</strong> $489.00 USD</p>
-          ${metadata.expectedEvents?.[0]?.trigger === "user-action" ? `<button class="action-button" ${canFireAction ? `data-fixture-action="booking" data-fixture-event="${eventName}"` : ""}>Complete booking</button>` : ""}
+          ${config.actionEvent ? `<button class="action-button" ${actionAttrs}>Complete booking</button>` : ""}
         </div>
       `;
     }
@@ -290,7 +273,7 @@
           <h2>Order confirmation</h2>
           <p>Order <strong>ORDER-1001</strong> is complete.</p>
           <p>Total: <strong>$129.99 USD</strong></p>
-          <button class="action-button" ${canFireAction ? `data-fixture-action="purchase" data-fixture-event="${eventName}"` : ""}>Replay purchase action</button>
+          ${config.actionEvent ? `<button class="action-button" ${actionAttrs}>Replay purchase action</button>` : ""}
         </div>
       `;
     }
@@ -300,7 +283,7 @@
         <h2>Retail product page</h2>
         <p>Performance jacket with weather-resistant shell and lightweight insulation.</p>
         <p><strong>$129.99</strong></p>
-        <button class="action-button" ${canFireAction ? `data-fixture-action="cart" data-fixture-event="${eventName}"` : ""}>Add to cart</button>
+        <button class="action-button" ${actionAttrs}>Add to cart</button>
       </div>
     `;
   }
@@ -308,61 +291,34 @@
   function renderFixturePage() {
     const root = document.getElementById("fixture-root");
     if (!root) return;
-    const metadata = readPageMetadata();
-    if (!metadata) return;
-
-    document.title = `${metadata.scenarioId} | Dot Pixel Fixture`;
+    const config = pageConfig(root);
+    document.title = genericTitle(config.kind);
     root.innerHTML = `
-      <nav class="fixture-nav">
-        <a class="back-link" href="/?q=${encodeURIComponent(metadata.scenarioId)}">Scenario catalog</a>
-        <span class="scenario-id">${metadata.pageUrl}</span>
-      </nav>
-      <section class="fixture-hero">
-        <p class="eyebrow">${metadata.integration} / ${metadata.expectedState}</p>
-        <h1>${metadata.title}</h1>
-        <div class="badge-row">
-          <span class="badge ${metadata.expectedState}">${metadata.expectedState}</span>
-          <span class="badge">${metadata.integration}</span>
-          <span class="badge">${metadata.category}</span>
-          ${(metadata.tagTypes || []).map((tag) => `<span class="badge">${tag}</span>`).join("")}
-          ${metadata.knownIssue ? `<span class="badge failure">${metadata.knownIssue}</span>` : ""}
-        </div>
-      </section>
-      <section class="fixture-grid">
+      <section class="fixture-grid single">
         <article class="fixture-panel">
-          ${fixtureContent(metadata)}
+          ${fixtureContent(config)}
         </article>
-        <aside class="fixture-panel">
-          <h2>Fixture metadata</h2>
-          ${renderMetadata(metadata)}
-          <div class="notice">
-            Placeholder Dot/GTM values are intentional until real snippets and container IDs are supplied.
-          </div>
-          <h3>Observed fixture events</h3>
-          <pre class="event-log" id="event-log">No fixture events recorded yet.</pre>
-        </aside>
       </section>
     `;
 
     document.querySelectorAll("[data-fixture-action]").forEach((button) => {
       button.addEventListener("click", () => {
-        const action = button.getAttribute("data-fixture-action");
-        const eventName = button.getAttribute("data-fixture-event") || (action === "cart" ? "add_to_cart" : action);
-        const event = metadata.integration === "gtm"
-          ? window.dotFixture.pushDataLayer({ event: eventName, scenarioId: metadata.scenarioId })
-          : window.dotFixture.record(eventName, { scenarioId: metadata.scenarioId });
+        const eventName = button.getAttribute("data-fixture-action");
+        const mode = button.getAttribute("data-fixture-mode");
+        const event = mode === "gtm"
+          ? window.dotFixture.pushDataLayer({ event: eventName })
+          : window.dotFixture.record(eventName);
         renderEventLog(event);
       });
     });
 
-    const pageLoadEvent = (metadata.expectedEvents || []).find((event) => event.trigger === "page-load" && event.shouldFire);
-    if (pageLoadEvent) {
-      const count = pageLoadEvent.expectedCount || 1;
+    if (config.autoEvent && config.autoCount > 0) {
+      const count = config.autoCount || 1;
       for (let index = 0; index < count; index += 1) {
-        if (metadata.integration === "gtm") {
-          window.dotFixture.pushDataLayer({ event: pageLoadEvent.name, scenarioId: metadata.scenarioId, sequence: index + 1 });
+        if (config.autoMode === "gtm") {
+          window.dotFixture.pushDataLayer({ event: config.autoEvent, sequence: index + 1 });
         } else {
-          window.dotFixture.record(pageLoadEvent.name, { scenarioId: metadata.scenarioId, sequence: index + 1 });
+          window.dotFixture.record(config.autoEvent, { sequence: index + 1 });
         }
       }
       renderEventLog();

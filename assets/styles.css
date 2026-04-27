@@ -318,6 +318,11 @@ tr:last-child td {
   align-items: start;
 }
 
+.fixture-grid.single {
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
+}
+
 .fixture-panel {
   padding: 22px;
 }

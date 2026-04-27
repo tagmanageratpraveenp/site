@@ -3,42 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="dot-fixture-scenario" content="gtm-ok-enhanced-matching">
-    <title>gtm-ok-enhanced-matching | Dot Pixel Fixture</title>
+    <title>Lead Request</title>
     <link rel="stylesheet" href="/assets/styles.css">
-    <script data-dot-fixture-tag="gtm-container" data-gtm-container-id="GTM-WHMJZJKG">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WHMJZJKG');</script>
-    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="gtm-dot-tag" data-dot-pixel-id="10217006" data-gtm-trigger="lead" data-he="TEST_EMAIL_PLACEHOLDER" data-hph="TEST_PHONE_PLACEHOLDER"></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WHMJZJKG');</script>
+    <script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event: 'lead',he: 'TEST_EMAIL_PLACEHOLDER',hph: 'TEST_PHONE_PLACEHOLDER'});</script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHMJZJKG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <main id="fixture-root" class="fixture-shell"></main>
-    <script type="application/json" id="dot-fixture-metadata">
-{
-  "scenarioId": "gtm-ok-enhanced-matching",
-  "title": "GTM passes enhanced matching variables into Dot",
-  "category": "lead-gen",
-  "integration": "gtm",
-  "expectedState": "success",
-  "tagTypes": ["gtm-enhanced-matching"],
-  "pageUrl": "/lead-gen/gtm-thank-you.html",
-  "pixelId": "10217006",
-  "ruleId": "DOT_RULE_ID_LEAD",
-  "gtmContainerId": "GTM-WHMJZJKG",
-  "matching": {
-    "he": "TEST_EMAIL_PLACEHOLDER",
-    "hph": "TEST_PHONE_PLACEHOLDER"
-  },
-  "expectedEvents": [
-    {
-      "name": "lead",
-      "trigger": "page-load",
-      "shouldFire": true,
-      "expectedCount": 1
-    }
-  ],
-  "knownIssue": null
-}
-    </script>
+    <main id="fixture-root" class="fixture-shell" data-page-kind="lead-confirmation" data-auto-event="lead" data-auto-mode="gtm" data-auto-count="1"></main>
+    
     <script src="/assets/fixture.js"></script>
   </body>
 </html>

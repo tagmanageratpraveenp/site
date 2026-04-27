@@ -207,7 +207,7 @@
       "tagTypes": [
         "custom-event"
       ],
-      "path": "/retail/bad/missing-base.html",
+      "path": "/retail/sale.html",
       "knownIssue": "missing-base"
     },
     {
@@ -219,7 +219,7 @@
       "tagTypes": [
         "custom-event"
       ],
-      "path": "/retail/bad/event-before-base.html",
+      "path": "/retail/collection.html",
       "knownIssue": "event-before-base"
     },
     {
@@ -231,7 +231,7 @@
       "tagTypes": [
         "base-js"
       ],
-      "path": "/retail/bad/wrong-pixel.html",
+      "path": "/retail/outlet.html",
       "knownIssue": "wrong-pixel-id"
     },
     {
@@ -243,7 +243,7 @@
       "tagTypes": [
         "custom-event"
       ],
-      "path": "/retail/bad/wrong-rule.html",
+      "path": "/retail/wishlist.html",
       "knownIssue": "wrong-rule-id"
     },
     {
@@ -255,7 +255,7 @@
       "tagTypes": [
         "enhanced-matching"
       ],
-      "path": "/lead-gen/bad/placeholders.html",
+      "path": "/lead-gen/demo.html",
       "knownIssue": "placeholder-values"
     },
     {
@@ -267,7 +267,7 @@
       "tagTypes": [
         "base-js"
       ],
-      "path": "/retail/bad/duplicate-base.html",
+      "path": "/retail/new-arrivals.html",
       "knownIssue": "duplicate-base"
     },
     {
@@ -279,7 +279,7 @@
       "tagTypes": [
         "custom-event"
       ],
-      "path": "/retail/bad/duplicate-event.html",
+      "path": "/retail/rewards.html",
       "knownIssue": "duplicate-event"
     },
     {
@@ -291,7 +291,7 @@
       "tagTypes": [
         "image-pixel"
       ],
-      "path": "/content/bad/http-tag.html",
+      "path": "/content/insights.html",
       "knownIssue": "http-url"
     },
     {
@@ -303,7 +303,7 @@
       "tagTypes": [
         "base-js"
       ],
-      "path": "/retail/bad/iframe-only.html",
+      "path": "/retail/lookbook.html",
       "knownIssue": "iframe-only"
     },
     {
@@ -315,7 +315,7 @@
       "tagTypes": [
         "base-js"
       ],
-      "path": "/retail/bad/csp-blocked.html",
+      "path": "/retail/returns.html",
       "knownIssue": "blocked-csp"
     },
     {
@@ -327,7 +327,7 @@
       "tagTypes": [
         "user-action-event"
       ],
-      "path": "/retail/bad/no-click-handler.html",
+      "path": "/retail/accessories.html",
       "knownIssue": "no-action-fired"
     },
     {
@@ -339,7 +339,7 @@
       "tagTypes": [
         "gtm-container"
       ],
-      "path": "/retail/bad/gtm-missing.html",
+      "path": "/retail/store.html",
       "knownIssue": "missing-container"
     },
     {
@@ -351,7 +351,7 @@
       "tagTypes": [
         "gtm-container"
       ],
-      "path": "/retail/bad/gtm-wrong-container.html",
+      "path": "/retail/brands.html",
       "knownIssue": "wrong-container"
     },
     {
@@ -363,7 +363,7 @@
       "tagTypes": [
         "gtm-pageview"
       ],
-      "path": "/retail/bad/gtm-no-dot.html",
+      "path": "/retail/shipping.html",
       "knownIssue": "dot-tag-absent"
     },
     {
@@ -375,7 +375,7 @@
       "tagTypes": [
         "gtm-custom-event"
       ],
-      "path": "/retail/bad/gtm-trigger-mismatch.html",
+      "path": "/retail/deals.html",
       "knownIssue": "trigger-mismatch"
     },
     {
@@ -387,7 +387,7 @@
       "tagTypes": [
         "gtm-custom-event"
       ],
-      "path": "/retail/bad/gtm-datalayer-overwrite.html",
+      "path": "/retail/checkout-review.html",
       "knownIssue": "datalayer-overwrite"
     },
     {
@@ -399,7 +399,7 @@
       "tagTypes": [
         "gtm-custom-event"
       ],
-      "path": "/retail/bad/gtm-event-before-load.html",
+      "path": "/retail/payment.html",
       "knownIssue": "event-before-gtm"
     },
     {
@@ -411,7 +411,7 @@
       "tagTypes": [
         "gtm-pageview"
       ],
-      "path": "/retail/bad/gtm-wrong-pixel.html",
+      "path": "/retail/member.html",
       "knownIssue": "wrong-pixel-id"
     },
     {
@@ -423,7 +423,7 @@
       "tagTypes": [
         "gtm-user-action-event"
       ],
-      "path": "/retail/bad/gtm-duplicate-trigger.html",
+      "path": "/retail/account.html",
       "knownIssue": "duplicate-trigger"
     },
     {
@@ -435,7 +435,7 @@
       "tagTypes": [
         "gtm-pageview"
       ],
-      "path": "/retail/bad/gtm-consent-blocked.html",
+      "path": "/retail/preferences.html",
       "knownIssue": "consent-blocked"
     },
     {
@@ -447,7 +447,7 @@
       "tagTypes": [
         "gtm-enhanced-matching"
       ],
-      "path": "/lead-gen/bad/gtm-missing-em-vars.html",
+      "path": "/lead-gen/webinar.html",
       "knownIssue": "enhanced-matching-missing-vars"
     }
   ]
