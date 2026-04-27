@@ -231,6 +231,15 @@ select {
   overflow-wrap: anywhere;
 }
 
+.catalog-id {
+  color: var(--text);
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
 .badge-row {
   display: flex;
   flex-wrap: wrap;
@@ -325,6 +334,17 @@ tr:last-child td {
 
 .fixture-panel {
   padding: 22px;
+}
+
+.page-reference {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin: 0 0 1rem;
+}
+
+.page-reference strong {
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 .fixture-panel h2,

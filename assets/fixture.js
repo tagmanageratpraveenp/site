@@ -49,6 +49,7 @@
 
   function scenarioSearchText(scenario) {
     return [
+      scenario.catalogId,
       scenario.scenarioId,
       scenario.title,
       scenario.category,
@@ -94,6 +95,10 @@
     const card = document.createElement("article");
     card.className = "scenario-card";
 
+    const catalogId = document.createElement("div");
+    catalogId.className = "catalog-id";
+    catalogId.textContent = `Catalog ID ${scenario.catalogId || "Unassigned"}`;
+
     const id = document.createElement("div");
     id.className = "scenario-id";
     id.textContent = scenario.scenarioId;
@@ -116,7 +121,7 @@
     link.href = scenario.path;
     link.textContent = "Open fixture";
 
-    card.append(id, title, badges, link);
+    card.append(catalogId, id, title, badges, link);
     return card;
   }
 
@@ -124,6 +129,7 @@
     const row = document.createElement("tr");
     const tags = [...(scenario.tagTypes || []), scenario.knownIssue].filter(Boolean).map(slugLabel).join(", ");
     row.innerHTML = `
+      <td><span class="catalog-id">${scenario.catalogId || "Unassigned"}</span></td>
       <td><strong>${scenario.title}</strong><br><span class="scenario-id">${scenario.scenarioId}</span></td>
       <td><span class="badge ${scenario.expectedState}">${scenario.expectedState}</span></td>
       <td>${slugLabel(scenario.integration)}</td>
@@ -214,7 +220,8 @@
       actionDisabled: root.dataset.actionDisabled === "true",
       autoEvent: root.dataset.autoEvent || "",
       autoMode: root.dataset.autoMode || "inline",
-      autoCount: Number(root.dataset.autoCount || "0")
+      autoCount: Number(root.dataset.autoCount || "0"),
+      catalogId: root.dataset.catalogId || ""
     };
   }
 
@@ -296,6 +303,7 @@
     root.innerHTML = `
       <section class="fixture-grid single">
         <article class="fixture-panel">
+          ${config.catalogId ? `<p class="page-reference">Catalog ID <strong>${config.catalogId}</strong></p>` : ""}
           ${fixtureContent(config)}
         </article>
       </section>

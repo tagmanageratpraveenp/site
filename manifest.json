@@ -12,7 +12,8 @@
         "base-js"
       ],
       "path": "/retail/",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-001"
     },
     {
       "scenarioId": "inline-ok-image-pageview",
@@ -24,7 +25,8 @@
         "image-pixel"
       ],
       "path": "/content/article.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-002"
     },
     {
       "scenarioId": "inline-ok-destination-url",
@@ -37,7 +39,8 @@
         "destination-url"
       ],
       "path": "/travel/hotel.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-003"
     },
     {
       "scenarioId": "inline-ok-custom-event-load",
@@ -49,7 +52,8 @@
         "custom-event"
       ],
       "path": "/retail/product.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-004"
     },
     {
       "scenarioId": "inline-ok-click-event",
@@ -61,7 +65,8 @@
         "user-action-event"
       ],
       "path": "/retail/cart.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-005"
     },
     {
       "scenarioId": "inline-ok-form-submit",
@@ -73,7 +78,8 @@
         "user-action-event"
       ],
       "path": "/lead-gen/",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-006"
     },
     {
       "scenarioId": "inline-ok-purchase",
@@ -86,7 +92,8 @@
         "purchase"
       ],
       "path": "/retail/purchase.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-007"
     },
     {
       "scenarioId": "inline-ok-enhanced-matching-email",
@@ -98,7 +105,8 @@
         "enhanced-matching"
       ],
       "path": "/lead-gen/thank-you.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-008"
     },
     {
       "scenarioId": "inline-ok-enhanced-matching-phone",
@@ -110,7 +118,8 @@
         "enhanced-matching"
       ],
       "path": "/travel/booking-confirmation.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-009"
     },
     {
       "scenarioId": "inline-ok-enhanced-matching-both",
@@ -123,7 +132,8 @@
         "purchase"
       ],
       "path": "/retail/order-confirmation.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-010"
     },
     {
       "scenarioId": "gtm-ok-base-pageview",
@@ -135,7 +145,8 @@
         "gtm-pageview"
       ],
       "path": "/retail/gtm.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-011"
     },
     {
       "scenarioId": "gtm-ok-custom-event",
@@ -147,7 +158,8 @@
         "gtm-custom-event"
       ],
       "path": "/retail/gtm-product.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-012"
     },
     {
       "scenarioId": "gtm-ok-click-event",
@@ -159,7 +171,8 @@
         "gtm-user-action-event"
       ],
       "path": "/retail/gtm-cart.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-013"
     },
     {
       "scenarioId": "gtm-ok-form-submit",
@@ -171,7 +184,8 @@
         "gtm-user-action-event"
       ],
       "path": "/lead-gen/gtm.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-014"
     },
     {
       "scenarioId": "gtm-ok-purchase",
@@ -184,7 +198,8 @@
         "purchase"
       ],
       "path": "/retail/gtm-confirmation.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-015"
     },
     {
       "scenarioId": "gtm-ok-enhanced-matching",
@@ -196,7 +211,8 @@
         "gtm-enhanced-matching"
       ],
       "path": "/lead-gen/gtm-thank-you.html",
-      "knownIssue": null
+      "knownIssue": null,
+      "catalogId": "FX-016"
     },
     {
       "scenarioId": "inline-bad-missing-base",
@@ -208,7 +224,8 @@
         "custom-event"
       ],
       "path": "/retail/sale.html",
-      "knownIssue": "missing-base"
+      "knownIssue": "missing-base",
+      "catalogId": "FX-017"
     },
     {
       "scenarioId": "inline-bad-event-before-base",
@@ -220,7 +237,8 @@
         "custom-event"
       ],
       "path": "/retail/collection.html",
-      "knownIssue": "event-before-base"
+      "knownIssue": "event-before-base",
+      "catalogId": "FX-018"
     },
     {
       "scenarioId": "inline-bad-wrong-pixel-id",
@@ -232,7 +250,8 @@
         "base-js"
       ],
       "path": "/retail/outlet.html",
-      "knownIssue": "wrong-pixel-id"
+      "knownIssue": "wrong-pixel-id",
+      "catalogId": "FX-019"
     },
     {
       "scenarioId": "inline-bad-wrong-rule-id",
@@ -244,7 +263,8 @@
         "custom-event"
       ],
       "path": "/retail/wishlist.html",
-      "knownIssue": "wrong-rule-id"
+      "knownIssue": "wrong-rule-id",
+      "catalogId": "FX-020"
     },
     {
       "scenarioId": "inline-bad-placeholder-values",
@@ -256,7 +276,8 @@
         "enhanced-matching"
       ],
       "path": "/lead-gen/demo.html",
-      "knownIssue": "placeholder-values"
+      "knownIssue": "placeholder-values",
+      "catalogId": "FX-021"
     },
     {
       "scenarioId": "inline-bad-duplicate-base",
@@ -268,7 +289,8 @@
         "base-js"
       ],
       "path": "/retail/new-arrivals.html",
-      "knownIssue": "duplicate-base"
+      "knownIssue": "duplicate-base",
+      "catalogId": "FX-022"
     },
     {
       "scenarioId": "inline-bad-duplicate-event",
@@ -280,7 +302,8 @@
         "custom-event"
       ],
       "path": "/retail/rewards.html",
-      "knownIssue": "duplicate-event"
+      "knownIssue": "duplicate-event",
+      "catalogId": "FX-023"
     },
     {
       "scenarioId": "inline-bad-http-url",
@@ -292,7 +315,8 @@
         "image-pixel"
       ],
       "path": "/content/insights.html",
-      "knownIssue": "http-url"
+      "knownIssue": "http-url",
+      "catalogId": "FX-024"
     },
     {
       "scenarioId": "inline-bad-iframe-only",
@@ -304,7 +328,8 @@
         "base-js"
       ],
       "path": "/retail/lookbook.html",
-      "knownIssue": "iframe-only"
+      "knownIssue": "iframe-only",
+      "catalogId": "FX-025"
     },
     {
       "scenarioId": "inline-bad-blocked-csp",
@@ -316,7 +341,8 @@
         "base-js"
       ],
       "path": "/retail/returns.html",
-      "knownIssue": "blocked-csp"
+      "knownIssue": "blocked-csp",
+      "catalogId": "FX-026"
     },
     {
       "scenarioId": "inline-bad-no-action-fired",
@@ -328,7 +354,8 @@
         "user-action-event"
       ],
       "path": "/retail/accessories.html",
-      "knownIssue": "no-action-fired"
+      "knownIssue": "no-action-fired",
+      "catalogId": "FX-027"
     },
     {
       "scenarioId": "gtm-bad-missing-container",
@@ -340,7 +367,8 @@
         "gtm-container"
       ],
       "path": "/retail/store.html",
-      "knownIssue": "missing-container"
+      "knownIssue": "missing-container",
+      "catalogId": "FX-028"
     },
     {
       "scenarioId": "gtm-bad-wrong-container",
@@ -352,7 +380,8 @@
         "gtm-container"
       ],
       "path": "/retail/brands.html",
-      "knownIssue": "wrong-container"
+      "knownIssue": "wrong-container",
+      "catalogId": "FX-029"
     },
     {
       "scenarioId": "gtm-bad-dot-tag-absent",
@@ -364,7 +393,8 @@
         "gtm-pageview"
       ],
       "path": "/retail/shipping.html",
-      "knownIssue": "dot-tag-absent"
+      "knownIssue": "dot-tag-absent",
+      "catalogId": "FX-030"
     },
     {
       "scenarioId": "gtm-bad-trigger-mismatch",
@@ -376,7 +406,8 @@
         "gtm-custom-event"
       ],
       "path": "/retail/deals.html",
-      "knownIssue": "trigger-mismatch"
+      "knownIssue": "trigger-mismatch",
+      "catalogId": "FX-031"
     },
     {
       "scenarioId": "gtm-bad-datalayer-overwrite",
@@ -388,7 +419,8 @@
         "gtm-custom-event"
       ],
       "path": "/retail/checkout-review.html",
-      "knownIssue": "datalayer-overwrite"
+      "knownIssue": "datalayer-overwrite",
+      "catalogId": "FX-032"
     },
     {
       "scenarioId": "gtm-bad-event-before-gtm",
@@ -400,7 +432,8 @@
         "gtm-custom-event"
       ],
       "path": "/retail/payment.html",
-      "knownIssue": "event-before-gtm"
+      "knownIssue": "event-before-gtm",
+      "catalogId": "FX-033"
     },
     {
       "scenarioId": "gtm-bad-wrong-pixel-id",
@@ -412,7 +445,8 @@
         "gtm-pageview"
       ],
       "path": "/retail/member.html",
-      "knownIssue": "wrong-pixel-id"
+      "knownIssue": "wrong-pixel-id",
+      "catalogId": "FX-034"
     },
     {
       "scenarioId": "gtm-bad-duplicate-trigger",
@@ -424,7 +458,8 @@
         "gtm-user-action-event"
       ],
       "path": "/retail/account.html",
-      "knownIssue": "duplicate-trigger"
+      "knownIssue": "duplicate-trigger",
+      "catalogId": "FX-035"
     },
     {
       "scenarioId": "gtm-bad-consent-blocked",
@@ -436,7 +471,8 @@
         "gtm-pageview"
       ],
       "path": "/retail/preferences.html",
-      "knownIssue": "consent-blocked"
+      "knownIssue": "consent-blocked",
+      "catalogId": "FX-036"
     },
     {
       "scenarioId": "gtm-bad-enhanced-matching-missing-vars",
@@ -448,7 +484,8 @@
         "gtm-enhanced-matching"
       ],
       "path": "/lead-gen/webinar.html",
-      "knownIssue": "enhanced-matching-missing-vars"
+      "knownIssue": "enhanced-matching-missing-vars",
+      "catalogId": "FX-037"
     }
   ]
 }
