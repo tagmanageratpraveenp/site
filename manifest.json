@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "site": "tagmanager.site",
+  "scenarios": [
+    {
+      "scenarioId": "inline-ok-base-pageview",
+      "title": "Inline base Dot tag fires on page load",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": ["base-js"],
+      "path": "/retail/",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-custom-event-load",
+      "title": "Inline custom event fires after the base tag",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": ["custom-event"],
+      "path": "/retail/product.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-click-event",
+      "title": "Inline click event fires only after add to cart",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": ["user-action-event"],
+      "path": "/retail/cart.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-ok-enhanced-matching-both",
+      "title": "Inline purchase event includes enhanced matching fields",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "success",
+      "tagTypes": ["enhanced-matching", "purchase"],
+      "path": "/retail/order-confirmation.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "inline-bad-missing-base",
+      "title": "Inline event snippet exists without the base tag",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": ["custom-event"],
+      "path": "/retail/bad/missing-base.html",
+      "knownIssue": "missing-base"
+    },
+    {
+      "scenarioId": "inline-bad-event-before-base",
+      "title": "Inline event fires before the base tag is available",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": ["custom-event"],
+      "path": "/retail/bad/event-before-base.html",
+      "knownIssue": "event-before-base"
+    },
+    {
+      "scenarioId": "inline-bad-wrong-pixel-id",
+      "title": "Inline Dot fires with the wrong pixel ID",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": ["base-js"],
+      "path": "/retail/bad/wrong-pixel.html",
+      "knownIssue": "wrong-pixel-id"
+    },
+    {
+      "scenarioId": "inline-bad-duplicate-event",
+      "title": "Inline conversion event fires twice",
+      "category": "retail",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": ["custom-event"],
+      "path": "/retail/bad/duplicate-event.html",
+      "knownIssue": "duplicate-event"
+    },
+    {
+      "scenarioId": "inline-bad-placeholder-values",
+      "title": "Inline enhanced matching values still contain placeholders",
+      "category": "lead-gen",
+      "integration": "inline",
+      "expectedState": "failure",
+      "tagTypes": ["enhanced-matching"],
+      "path": "/lead-gen/bad/placeholders.html",
+      "knownIssue": "placeholder-values"
+    },
+    {
+      "scenarioId": "gtm-ok-base-pageview",
+      "title": "GTM pageview Dot tag fires on page load",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "success",
+      "tagTypes": ["gtm-pageview"],
+      "path": "/retail/gtm.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "gtm-ok-custom-event",
+      "title": "GTM custom event triggers Dot",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "success",
+      "tagTypes": ["gtm-custom-event"],
+      "path": "/retail/gtm-product.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "gtm-ok-click-event",
+      "title": "GTM click event pushes dataLayer and fires Dot",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "success",
+      "tagTypes": ["gtm-user-action-event"],
+      "path": "/retail/gtm-cart.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "gtm-ok-enhanced-matching",
+      "title": "GTM passes enhanced matching variables into Dot",
+      "category": "lead-gen",
+      "integration": "gtm",
+      "expectedState": "success",
+      "tagTypes": ["gtm-enhanced-matching"],
+      "path": "/lead-gen/gtm-thank-you.html",
+      "knownIssue": null
+    },
+    {
+      "scenarioId": "gtm-bad-missing-container",
+      "title": "GTM container script is missing",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": ["gtm-container"],
+      "path": "/retail/bad/gtm-missing.html",
+      "knownIssue": "missing-container"
+    },
+    {
+      "scenarioId": "gtm-bad-wrong-container",
+      "title": "Wrong GTM container loads",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": ["gtm-container"],
+      "path": "/retail/bad/gtm-wrong-container.html",
+      "knownIssue": "wrong-container"
+    },
+    {
+      "scenarioId": "gtm-bad-dot-tag-absent",
+      "title": "GTM loads but Yahoo Dot tag is absent",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": ["gtm-pageview"],
+      "path": "/retail/bad/gtm-no-dot.html",
+      "knownIssue": "dot-tag-absent"
+    },
+    {
+      "scenarioId": "gtm-bad-trigger-mismatch",
+      "title": "GTM trigger listens for the wrong event",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": ["gtm-custom-event"],
+      "path": "/retail/bad/gtm-trigger-mismatch.html",
+      "knownIssue": "trigger-mismatch"
+    },
+    {
+      "scenarioId": "gtm-bad-datalayer-overwrite",
+      "title": "Page overwrites dataLayer after GTM loads",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": ["gtm-custom-event"],
+      "path": "/retail/bad/gtm-datalayer-overwrite.html",
+      "knownIssue": "datalayer-overwrite"
+    },
+    {
+      "scenarioId": "gtm-bad-duplicate-trigger",
+      "title": "One GTM action causes duplicate Dot firing",
+      "category": "retail",
+      "integration": "gtm",
+      "expectedState": "failure",
+      "tagTypes": ["gtm-user-action-event"],
+      "path": "/retail/bad/gtm-duplicate-trigger.html",
+      "knownIssue": "duplicate-trigger"
+    }
+  ]
+}

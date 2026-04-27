@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="gtm-bad-missing-container">
+    <title>gtm-bad-missing-container | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="gtm-dot-tag" data-dot-pixel-id="10217006" data-gtm-trigger="pageview"></script>
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "gtm-bad-missing-container",
+  "title": "GTM container script is missing",
+  "category": "retail",
+  "integration": "gtm",
+  "expectedState": "failure",
+  "tagTypes": ["gtm-container"],
+  "pageUrl": "/retail/bad/gtm-missing.html",
+  "pixelId": "10217006",
+  "ruleId": null,
+  "gtmContainerId": "GTM-WHMJZJKG",
+  "expectedEvents": [
+    {
+      "name": "pageview",
+      "trigger": "page-load",
+      "shouldFire": false,
+      "expectedCount": 0
+    }
+  ],
+  "knownIssue": "missing-container"
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>

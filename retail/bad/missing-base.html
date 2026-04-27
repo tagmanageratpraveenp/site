@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="inline-bad-missing-base">
+    <title>inline-bad-missing-base | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="custom-event" data-dot-rule-id="DOT_RULE_ID_PURCHASE" data-dot-event="purchase"></script>
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "inline-bad-missing-base",
+  "title": "Inline event snippet exists without the base tag",
+  "category": "retail",
+  "integration": "inline",
+  "expectedState": "failure",
+  "tagTypes": ["custom-event"],
+  "pageUrl": "/retail/bad/missing-base.html",
+  "pixelId": "10217006",
+  "ruleId": "DOT_RULE_ID_PURCHASE",
+  "gtmContainerId": null,
+  "expectedEvents": [
+    {
+      "name": "purchase",
+      "trigger": "page-load",
+      "shouldFire": false,
+      "expectedCount": 0
+    }
+  ],
+  "knownIssue": "missing-base"
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>

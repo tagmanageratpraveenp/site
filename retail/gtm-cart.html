@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="gtm-ok-click-event">
+    <title>gtm-ok-click-event | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script data-dot-fixture-tag="gtm-container" data-gtm-container-id="GTM-WHMJZJKG">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WHMJZJKG');</script>
+    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="gtm-dot-tag" data-dot-pixel-id="10217006" data-gtm-trigger="add_to_cart"></script>
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHMJZJKG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <main id="fixture-root" class="fixture-shell"></main>
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "gtm-ok-click-event",
+  "title": "GTM click event pushes dataLayer and fires Dot",
+  "category": "retail",
+  "integration": "gtm",
+  "expectedState": "success",
+  "tagTypes": ["gtm-user-action-event"],
+  "pageUrl": "/retail/gtm-cart.html",
+  "pixelId": "10217006",
+  "ruleId": "DOT_RULE_ID_ADD_TO_CART",
+  "gtmContainerId": "GTM-WHMJZJKG",
+  "expectedEvents": [
+    {
+      "name": "add_to_cart",
+      "trigger": "user-action",
+      "shouldFire": true,
+      "expectedCount": 1
+    }
+  ],
+  "knownIssue": null
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>

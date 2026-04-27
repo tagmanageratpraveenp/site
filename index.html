@@ -1,5 +1,114 @@
-<html>
-  <body>
-    <h1>Hello World</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dot Pixel Fixture Scenarios</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body class="catalog-page">
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">tagmanager.site</p>
+        <h1>Dot Pixel fixture scenarios</h1>
+        <p class="lede">Browse every known-good and intentionally broken Dot Pixel fixture page.</p>
+      </div>
+      <a class="manifest-link" href="/manifest.json">manifest.json</a>
+    </header>
+
+    <main>
+      <section class="catalog-toolbar" aria-label="Scenario filters">
+        <label>
+          Search
+          <input id="filter-search" type="search" placeholder="Scenario, tag, issue, title">
+        </label>
+        <label>
+          State
+          <select id="filter-state">
+            <option value="all">All states</option>
+            <option value="success">Success</option>
+            <option value="failure">Failure</option>
+          </select>
+        </label>
+        <label>
+          Integration
+          <select id="filter-integration">
+            <option value="all">All integrations</option>
+            <option value="inline">Inline</option>
+            <option value="gtm">GTM</option>
+          </select>
+        </label>
+        <label>
+          Category
+          <select id="filter-category">
+            <option value="all">All categories</option>
+          </select>
+        </label>
+        <label>
+          Tag or issue
+          <select id="filter-tag">
+            <option value="all">All tags and issues</option>
+          </select>
+        </label>
+        <a class="clear-link" href="/">Clear</a>
+      </section>
+
+      <section class="stats-grid" id="scenario-stats" aria-label="Scenario summary"></section>
+
+      <section class="group-grid" aria-label="Common scenario groups">
+        <a class="group-card" href="/?integration=inline&state=success">
+          <span>Inline success</span>
+          <strong id="count-inline-success">0</strong>
+        </a>
+        <a class="group-card" href="/?integration=inline&state=failure">
+          <span>Inline failures</span>
+          <strong id="count-inline-failure">0</strong>
+        </a>
+        <a class="group-card" href="/?integration=gtm&state=success">
+          <span>GTM success</span>
+          <strong id="count-gtm-success">0</strong>
+        </a>
+        <a class="group-card" href="/?integration=gtm&state=failure">
+          <span>GTM failures</span>
+          <strong id="count-gtm-failure">0</strong>
+        </a>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div>
+            <h2>Scenario cards</h2>
+            <p id="result-count">Loading scenarios...</p>
+          </div>
+        </div>
+        <div class="scenario-grid" id="scenario-cards"></div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div>
+            <h2>All scenarios</h2>
+            <p>Compact scan view with direct fixture links.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>State</th>
+                <th>Integration</th>
+                <th>Category</th>
+                <th>Tags / issue</th>
+                <th>Path</th>
+              </tr>
+            </thead>
+            <tbody id="scenario-table"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/assets/fixture.js"></script>
   </body>
 </html>

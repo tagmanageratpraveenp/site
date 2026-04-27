@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="gtm-bad-wrong-container">
+    <title>gtm-bad-wrong-container | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="application/json" data-dot-fixture-tag="gtm-container" data-gtm-container-id="GTM-REPLACE-WRONG">{"src":"https://www.googletagmanager.com/gtm.js?id=GTM-REPLACE-WRONG"}</script>
+    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="gtm-dot-tag" data-dot-pixel-id="10217006" data-gtm-trigger="pageview"></script>
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "gtm-bad-wrong-container",
+  "title": "Wrong GTM container loads",
+  "category": "retail",
+  "integration": "gtm",
+  "expectedState": "failure",
+  "tagTypes": ["gtm-container"],
+  "pageUrl": "/retail/bad/gtm-wrong-container.html",
+  "pixelId": "10217006",
+  "ruleId": null,
+  "gtmContainerId": "GTM-REPLACE-WRONG",
+  "expectedGtmContainerId": "GTM-WHMJZJKG",
+  "expectedEvents": [
+    {
+      "name": "pageview",
+      "trigger": "page-load",
+      "shouldFire": true,
+      "expectedCount": 1
+    }
+  ],
+  "knownIssue": "wrong-container"
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>

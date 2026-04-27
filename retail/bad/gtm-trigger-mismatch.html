@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="dot-fixture-scenario" content="gtm-bad-trigger-mismatch">
+    <title>gtm-bad-trigger-mismatch | Dot Pixel Fixture</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="application/json" data-dot-fixture-tag="gtm-container" data-gtm-container-id="GTM-REPLACE-TRIGGER-MISMATCH">{"src":"https://www.googletagmanager.com/gtm.js?id=GTM-REPLACE-TRIGGER-MISMATCH"}</script>
+    <script type="application/x-dot-pixel-placeholder" data-dot-fixture-tag="gtm-dot-tag" data-dot-pixel-id="10217006" data-gtm-trigger="purchase"></script>
+  </head>
+  <body>
+    <main id="fixture-root" class="fixture-shell"></main>
+    <script type="application/json" id="dot-fixture-metadata">
+{
+  "scenarioId": "gtm-bad-trigger-mismatch",
+  "title": "GTM trigger listens for the wrong event",
+  "category": "retail",
+  "integration": "gtm",
+  "expectedState": "failure",
+  "tagTypes": ["gtm-custom-event"],
+  "pageUrl": "/retail/bad/gtm-trigger-mismatch.html",
+  "pixelId": "10217006",
+  "ruleId": "DOT_RULE_ID_PURCHASE",
+  "gtmContainerId": "GTM-REPLACE-TRIGGER-MISMATCH",
+  "actualDataLayerEvent": "purchase_complete",
+  "expectedEvents": [
+    {
+      "name": "purchase",
+      "trigger": "page-load",
+      "shouldFire": false,
+      "expectedCount": 0
+    }
+  ],
+  "knownIssue": "trigger-mismatch"
+}
+    </script>
+    <script src="/assets/fixture.js"></script>
+  </body>
+</html>
